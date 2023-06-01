@@ -55,8 +55,8 @@ Node *stmt() {
     expect(";");
     return node;
   }
-  
-  Node *node = expr();
+
+  Node *node = new_unary(ND_EXPR_STMT, expr());
   expect(";");
   return node;
 }
