@@ -10,9 +10,9 @@
 //
 
 typedef enum {
-  TK_RESERVED, // Keywords or punctuators
-  TK_NUM,      // Integer literals
-  TK_EOF,      // End-of-file markers
+  TK_RESERVED, // Keywords or punctuators 記号
+  TK_NUM,      // Integer literals 整数
+  TK_EOF,      // End-of-file markers 終端
 } TokenKind;
 
 // Token type
@@ -42,15 +42,16 @@ extern Token *token;
 //
 
 typedef enum {
-  ND_ADD, // +
-  ND_SUB, // -
-  ND_MUL, // *
-  ND_DIV, // /
-  ND_EQ,  // ==
-  ND_NE,  // !=
-  ND_LT,  // <
-  ND_LE,  // <=
-  ND_NUM, // Integer
+  ND_ADD,    // +
+  ND_SUB,    // -
+  ND_MUL,    // *
+  ND_DIV,    // /
+  ND_EQ,     // ==
+  ND_NE,     // !=
+  ND_LT,     // <
+  ND_LE,     // <=
+  ND_RETURN, // "return"
+  ND_NUM,    // Integer
 } NodeKind;
 
 // AST node type
