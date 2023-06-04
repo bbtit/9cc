@@ -50,7 +50,26 @@ struct Token {
 };
 ```
 
-# Parse
+# parse.c
+連結リストから生成規則をもとに構文木を作成する。生成規則をもとに再帰的な関数を書く。
+
+## 生成規則
+EBNFの書き方についてはEBNFの項を参照
+```
+program    = stmt*
+stmt       = expr ";"
+expr       = assign
+assign     = equality ("=" assign)?
+equality   = relational ("==" relational | "!=" relational)*
+relational = add ("<" add | "<=" add | ">" add | ">=" add)*
+add        = mul ("+" mul | "-" mul)*
+mul        = unary ("*" unary | "/" unary)*
+unary      = ("+" | "-")? primary
+primary    = num | ident | "(" expr ")"
+```
+
+
+
 ## 構造体Node
 ```c
 typedef enum {
@@ -99,3 +118,11 @@ struct Node {
 # アセンブリ
 
 # レジスタ
+
+# EBNF(Extended Backus–Naur form)
+|書き方  |意味|
+|-----  |----|
+|A*     |Aの0回以上の繰り返し|
+|A?     |Aまたはε(何もなし)|
+|A\|B   |AまたはB|
+|(・・・)|グループ化|
