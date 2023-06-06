@@ -52,6 +52,26 @@ struct Token {
 
 # parse.c
 連結リストから生成規則をもとに構文木を作成する。生成規則をもとに再帰的な関数を書く。
+- `Node *new_node(NodeKind kind)`
+  - 構造体Nodeのサイズ分のメモリをcallocで確保したNode *nodeを作成
+  - 引数kindでnodeの種類を決定する
+- `Node *new_binary(NodeKind kind, Node *lhs, Node *rhs)`
+  - 二分ノードを作成する
+  - Node *nodeを作成しnode->lhsに引数lhsをnode->rhsに引数rhsを代入
+- `Node *new_unary(NodeKind kind, Node *expr)`
+  - 一分ノードを作成する
+  - Node *nodeを作成しnode->lhsに引数exprを代入
+- `Node *new_num(int val)`
+  - 数字を表すノード
+  - Node *nodeを作成
+  - node->kindはND_NUM
+  - node->valは引数val
+- `Node *new_lvar(char name)`
+  - 変数を表すノード
+  - Node *nodeを作成
+  - node->kindはND_LVAR
+  - node->nameは引数name
+
 
 ## 生成規則
 EBNFの書き方についてはEBNFの項を参照
